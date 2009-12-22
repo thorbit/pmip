@@ -1,4 +1,4 @@
-A quick (and dirty) port of the [http://plugins.intellij.net/plugin/?idea&id=96 TestDox] plugin, with additional support for navigating between ruby src/test.
+A quick (and dirty) port of the [http://plugins.intellij.net/plugin/?idea&id=96 TestDox] plugin, with additional support for navigating between ruby src and test files.
 
 {{{
 class ToggleClassTest < PMIPAction
