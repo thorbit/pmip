@@ -1,7 +1,7 @@
 A quick (and dirty) port of the [http://plugins.intellij.net/plugin/?idea&id=96 TestDox] plugin, with additional support for navigating between ruby src and test files.
 
 {{{
-class ToggleClassTest < PMIPAction
+class ToggleBetweenClassAndTest < PMIPAction
    def run(event, context)
      from = context.editor_filepath
      to = toggle_to(from)
@@ -30,5 +30,5 @@ class ToggleClassTest < PMIPAction
    end
 end
 
-bind 'ctrl alt shift T', ToggleClassTest.new
+bind 'ctrl alt shift T', ToggleBetweenClassAndTest.new
 }}}
