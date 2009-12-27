@@ -1,0 +1,15 @@
+Download the current PMIP Core Bundle - its listed under Featured downloads on the homepage.  Extract the contents of the bundle to *{PROJECT_HOME_DIR}/pmip/plugins/*.
+
+Edit pmip.rb so that it includes the bundle
+{{{
+plugin 'core'
+}}}
+
+hitting 'Reset' should result in something like:
+
+{{{
+Loading plugin core:
+- Version: x.x.x
+
+Ready to go ...
+}}}
