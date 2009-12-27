@@ -18,4 +18,6 @@ hello
 Ready to go ...
 }}}
 
-That's useful itself, but it's more interesting when we start to interact with intellii.  In order to do this you'll need to download and install the current PMIP Core bundle.
+That's useful itself, but it's more interesting when we start to interact with intellii.  In order to do this firstly you'll need to see InstallingTheCoreBundle.
+
+
