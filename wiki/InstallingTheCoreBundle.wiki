@@ -1,4 +1,4 @@
-Download the current PMIP Core Bundle - its listed under Featured downloads on the homepage.  Extract the contents of the bundle to *{PROJECT_HOME_DIR}/pmip/plugins/*.
+Download the current PMIP Core Bundle - its listed under Featured downloads on the homepage.  Extract the contents of the bundle to *{PROJECT_HOME_DIR}/pmip/plugins/* (i.e afterwards you should have '{PROJECT_HOME_DIR}/pmip/plugins/core').
 
 Edit pmip.rb so that it includes the bundle
 {{{
@@ -14,4 +14,4 @@ Loading plugin core:
 Ready to go ...
 }}}
 
-The core bundle is currently kept separate from the host plugin because it's changes much more frequently than the host. At some point it may become part of the host, once the API's have settled down.
+The core bundle is currently kept separate from the host plugin because it changes much more frequently than the host. At some point it may become part of the host, once the API's have settled down.
