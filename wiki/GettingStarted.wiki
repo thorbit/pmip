@@ -1,5 +1,8 @@
 Install the host plugin, by downloading it from the plugin manager in intellij. Once intellij has restarted you should see a new '*PMIP*' tab and if all has gone well a message along the lines of: 
-*Hello PMIP x.x.x! - Please see http://code.google.com/p/pmip/ for full instructions and plugin helper bundles.*
+
+{{{
+Hello PMIP x.x.x! - Please see http://code.google.com/p/pmip/ for full instructions and plugin helper bundles.
+}}}
 
 On opening a project PMIP will look for the file: *{PROJECT_HOME_DIR}/pmip/pmip.rb* and execute it. PMIP will also evaluate the contents of that script whenever you press the '*Reset*' button on the PMIP tab. It's effectively like an IRB session.  So replacing the contents of pmip.rb with:
 
@@ -19,5 +22,3 @@ Ready to go ...
 }}}
 
 That's useful itself, but it's more interesting when we start to interact with intellii.  In order to do this firstly you'll need to see InstallingTheCoreBundle.
-
-
