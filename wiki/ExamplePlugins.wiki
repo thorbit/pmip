@@ -1,1 +1,1 @@
-[agilifier|http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier]
+[http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier|agilifier]
