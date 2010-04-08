@@ -1,7 +1,7 @@
 ==Agilifier ==
 
 [http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/init.rb config]
-
+[http://code.google.com/p/pmip/source/browse/trunk/plugins/agilifier/init.rb config]
 [http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/lib agilifier]
 
 
