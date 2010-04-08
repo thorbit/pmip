@@ -1,4 +1,5 @@
 ==Agilifier ==
+<wiki:gadget url="http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/lib/init.rb" width="540" height="400" />
 [http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/lib agilifier]
 
 ==Klondike==
