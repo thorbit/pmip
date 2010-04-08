@@ -27,7 +27,9 @@ balh ...
   * For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
 
 Hopefully this will be resolved soon....
----
+
+----
+
 ==How do I install/use rubygems?==
 
 It's far from ideal, but it is possible to install gems (obviously make sure they are jruby compatible versions!) from the command line.
@@ -47,4 +49,4 @@ Once installed you can then require the gem in the normal way, note that you may
 
 In future, I hope that there might be a more elegant method of installing gems from within PMIP, but I've not found it yet - all suggestions welcome!
 
----
+---- 
