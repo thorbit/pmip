@@ -1,9 +1,8 @@
 ==Agilifier ==
-<wiki:gadget url="http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/lib/init.rb"/>
-<wiki:gadget url="http://google-code-project-hosting-gadgets.googlecode.com/svn/trunk/examples/issueupdates_example.xml" />
 
-
+[http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/lib/init.rb init]
 [http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/lib agilifier]
+
 
 ==Klondike==
 [http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/klondike/lib klondike]
