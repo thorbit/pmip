@@ -1,3 +1,25 @@
+==Why does PMIP start with a big red error message?==
+
+If the message looks something like:
+
+{{{
+PMIP was unable to startup because starting the jruby engine resulted in:
+It looks like your intellij settings directory contains a funny character - probably a space. 
+JRuby does not like this, please relocate it to a directory that does not contain funny characters
+
+FYI, jruby home was: jar:file:/Users/xxxx/Library/Application Support/IntelliJIdea90CE/PMIP/lib/jruby-complete-1.4.0.jar!/META-INF/jruby.home/bin/jruby: 
+
+The underyling issues was; Illegal character in opaque part at index 40: jar:file:/Users/xxxx/Library/Application Support/IntelliJIdea90CE/PMIP/lib/jruby-complete-1.4.0.jar!/META-INF/jruby.home/bin/jruby
+pmip.impl.JRubyInterpreter.guardForDodgyJrubyHome(JRubyInterpreter.java:67)
+pmip.impl.JRubyInterpreter.init(JRubyInterpreter.java:48)
+pmip.impl.JRubyInterpreter.<init>(JRubyInterpreter.java:17)
+pmip.PMIP.resetInterpreter(PMIP.java:78)
+pmip.PMIP.projectOpened(PMIP.java:54)}}}
+
+... it's because the path to your intellij settings directory contains a space somewhere (in the above example 'Application Support') and at the time of writing the embedded jruby interpreter does not like this. The solution is to relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version on platform.  For intellij 9 on Windows this means changing the xxxxxxx property in your idea.properties file.  For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
+
+Hopefully this will be resolved soon.
+
 ==How do I install/use rubygems?==
 
 It's far from ideal, but it is possible to install gems (obviously make sure they are jruby compatible versions!) from the command line.
