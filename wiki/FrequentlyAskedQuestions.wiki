@@ -1,4 +1,4 @@
-*How do I install and use gems?*
+*How do I install/use rubygems?*
 
 It's far from ideal, but it is possible to install gems (obviously make sure they are jruby compatible versions!) from the command line.
 
