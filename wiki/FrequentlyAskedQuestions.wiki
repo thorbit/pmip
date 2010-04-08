@@ -15,6 +15,9 @@ pmip.impl.JRubyInterpreter.init(JRubyInterpreter.java:48)
 pmip.impl.JRubyInterpreter.<init>(JRubyInterpreter.java:17)
 pmip.PMIP.resetInterpreter(PMIP.java:78)
 pmip.PMIP.projectOpened(PMIP.java:54)
+blah ...
+blah ...
+balh ...
 }}}
 
 ... it's because the path to your intellij settings directory contains a space somewhere (in the above example 'Application Support') and at the time of writing the embedded jruby interpreter does not like this. The solution is to relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version on platform.  For intellij 9 on Windows this means changing the xxxxxxx property in your idea.properties file.  For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
