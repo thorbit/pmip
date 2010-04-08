@@ -5,12 +5,12 @@ It's far from ideal, but it is possible to install gems (obviously make sure the
 In order to do this you'll need to locate your intellij settings directory and then run the following:
 
 {{{
-java -jar {INTELLIJ_SETTINGS_DIRECTORY}/config/plugins/PMIP/lib/jruby-complete-1.4.0.jar --command jgem install {GEM_FILE}
+java -jar {INTELLIJ_SETTINGS_DIRECTORY}/config/plugins/PMIP/lib/jruby-complete-x.x.x.jar --command jgem install {GEM_FILE}
 }}}
 
 For example, to install the hpricot gem:
 {{{
-java -jar C:/dev/settings/.IntelliJIdea90/config/plugins/PMIP/lib/jruby-complete-1.4.0.jar --command jgem install hpricot-0.8.2-java.gem
+java -jar C:/dev/settings/.IntelliJIdea90/config/plugins/PMIP/lib/jruby-complete-x.x.x.jar --command jgem install hpricot-x.x.x-java.gem
 }}}
 
 Once installed you can then require the gem in the normal way, note that you may also need to require 'rubygems' first.
