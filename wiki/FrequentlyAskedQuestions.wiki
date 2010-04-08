@@ -22,12 +22,12 @@ balh ...
 
 ... it's because the path to your intellij settings directory contains a space somewhere (in the above example 'Application Support') and at the time of writing the embedded jruby interpreter does not like this. The solution is to relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version and platform.  
 
-  *For intellij 9 on Windows this means changing the xxxxxxx property in your idea.properties file.  
+  * For intellij 9 on Windows this means changing the xxxxxxx property in your idea.properties file.  
 
-  *For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
+  * For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
 
 Hopefully this will be resolved soon....
-
+---
 ==How do I install/use rubygems?==
 
 It's far from ideal, but it is possible to install gems (obviously make sure they are jruby compatible versions!) from the command line.
@@ -46,3 +46,5 @@ java -jar C:/dev/settings/.IntelliJIdea90/config/plugins/PMIP/lib/jruby-complete
 Once installed you can then require the gem in the normal way, note that you may also need to require 'rubygems' first.
 
 In future, I hope that there might be a more elegant method of installing gems from within PMIP, but I've not found it yet - all suggestions welcome!
+
+---
