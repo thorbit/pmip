@@ -1,5 +1,5 @@
-Agilifier 
+==Agilifier ==
 [http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/agilifier/lib agilifier]
 
-Klondike
+==Klondike==
 [http://code.google.com/p/pmip/source/browse/#svn/trunk/plugins/klondike/lib klondike]
