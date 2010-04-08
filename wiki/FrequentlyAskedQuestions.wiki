@@ -49,4 +49,4 @@ Once installed you can then require the gem in the normal way, note that you may
 
 In future, I hope that there might be a more elegant method of installing gems from within PMIP, but I've not found it yet - all suggestions welcome!
 
----- 
+----
