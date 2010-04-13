@@ -22,7 +22,7 @@ balh ...
 
 ... it's because the path to your intellij settings directory contains a space somewhere (in the above example 'Application Support') and at the time of writing the embedded jruby interpreter does not like this. The solution is to relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version and platform.  
 
-  * For intellij 9 on Windows this means changing the xxxxxxx property in your idea.properties file.  
+  * For intellij 9 on Windows this means changing the idea.plugins.path property in your idea.properties file.  
 
   * For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
 
