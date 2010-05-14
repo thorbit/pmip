@@ -1,6 +1,8 @@
 Actions are the simplest method of adding functionality to your plugin (see also: WritingServlets).
 
-PMIP Actions
+To write your action simply extend PMIPAction and implement the run() method.
+
+Note that PMIPAction extend intellij's AnAction
 
 {{{
 class HelloWorldAction < PMIPAction
@@ -10,4 +12,4 @@ class HelloWorldAction < PMIPAction
 end
 }}}
 
-Once you've written an action you'll probably Binding
+Once you've written an action you'll probably be interested in BindingKeystrokes
