@@ -15,3 +15,5 @@ Ready to go ...
 }}}
 
 The core bundle is currently kept separate from the host plugin because it changes much more frequently than the host. At some point it may become part of the host, once the API's have settled down.
+
+Now we are ready to write MyFirstPlugin
