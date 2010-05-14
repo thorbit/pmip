@@ -1,6 +1,6 @@
 Once you've written a PMIPAction you need to bind it so that intellij has some means of executing it.
 
-The 'bind' method (on [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/core/lib/binder.rb Binder]) binds an instance of a PMIPAction.
+The 'bind' method (on [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/core/lib/binder.rb Binder]) is used to wire up an instance of a PMIPAction.
 
 {{{
 bind HelloWorldAction.new
