@@ -1,0 +1,13 @@
+Actions are the simplest method of adding functionality to your plugin (see also: WritingServlets).
+
+PMIP Actions
+
+{{{
+class HelloWorldAction < PMIPAction
+  def run(event, context)
+    Balloon.new(context).info(''Hello from PMIP!')
+  end
+end
+}}}
+
+Once you've written an action you'll probably Binding
