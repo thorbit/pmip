@@ -12,7 +12,7 @@ In this example we'll just pop up a Balloon with a nice message:
 {{{
 class HelloWorldAction < PMIPAction
   def run(event, context)
-    Balloon.new(context).info(''Hello from PMIP!')
+    Balloon.new(context).info('Hello from PMIP!')
   end
 end
 }}}
