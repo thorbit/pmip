@@ -1,7 +1,7 @@
 ==Agilifier==
-[http://code.google.com/p/pmip/source/browse/trunk/plugins/agilifier/init.rb init.rb] ->
-[http://code.google.com/p/pmip/source/browse/trunk/plugins/agilifier/lib lib]
+[http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/agilifier/init.rb init.rb] ->
+[http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/agilifier/lib lib]
 
 ==Klondike==
-[http://code.google.com/p/pmip/source/browse/trunk/plugins/klondike/init.rb init.rb] ->
-[http://code.google.com/p/pmip/source/browse/trunk/plugins/klondike/lib lib]
+[http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/klondike/init.rb init.rb] ->
+[http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/klondike/lib lib]
