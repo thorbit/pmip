@@ -2,7 +2,10 @@ Actions are the simplest method of adding functionality to your plugin (see also
 
 To write your action simply extend [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/core/lib/action.rb PMIPAction] and implement the run() method.
 
-Note that PMIPAction extend intellij's AnAction
+A few things to note:
+- PMIPAction extends intellij's AnAction
+- 'event' is intellij's AnActionEvent 
+- context is a [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/core/lib/context.rb PMIPContext]
 
 {{{
 class HelloWorldAction < PMIPAction
