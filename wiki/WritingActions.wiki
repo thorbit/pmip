@@ -17,4 +17,4 @@ class HelloWorldAction < PMIPAction
 end
 }}}
 
-Once you've written an action you'll probably be interested in BindingKeystrokes
+Once you've written some actions you'll need to tell intellji about them by BindingActions
