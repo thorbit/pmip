@@ -17,3 +17,5 @@ Whenever you press 'Reset', PMIP will now execute the code in plugins/xyz/init.r
 Generally plugin code/libaries are stored in 'lib' and init.rb simply loads the code and binds actions to keypress - see the ExamplePlugins for further details.
 
 Note that, you must use 'load' instead of 'require' because like IRB, PMIP will not reload previously required files.
+
+Now you are ready to start WritingActions
