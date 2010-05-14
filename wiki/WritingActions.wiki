@@ -1,6 +1,6 @@
 Actions are the simplest method of adding functionality to your plugin (see also: WritingServlets).
 
-To write your action simply extend PMIPAction and implement the run() method.
+To write your action simply extend [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/core/lib/action.rb PMIPAction] and implement the run() method.
 
 Note that PMIPAction extend intellij's AnAction
 
