@@ -7,7 +7,7 @@ A few things to note:
  * 'event' is an intellij AnActionEvent 
  * context is a [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/core/lib/context.rb PMIPContext]
 
-In this example we'll just pop up a Balloon with a nice message
+In this example we'll just pop up a Balloon with a nice message:
 
 {{{
 class HelloWorldAction < PMIPAction
