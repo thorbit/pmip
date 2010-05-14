@@ -5,3 +5,7 @@
 ==Klondike==
 [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/klondike/init.rb init.rb] ->
 [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/klondike/lib lib]
+
+==Fxi==
+[http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/fxi/init.rb init.rb] ->
+[http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/fxi/lib lib]
