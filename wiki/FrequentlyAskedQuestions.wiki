@@ -26,6 +26,8 @@ balh ...
 
   * For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
 
+Don't forget to move your existing plugins to the new directory or they will disappear!
+
 Hopefully this will be resolved soon....
 
 ----
