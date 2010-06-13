@@ -20,7 +20,7 @@ blah ...
 balh ...
 }}}
 
-*Please upgrade your PMIP plugin to 0.3.0 or higher* - This is a known problem in intellij's classloader that has been fixed in intellij 9.0.3 (see:  [http://youtrack.jetbrains.net/issue/IDEA-55227] IDEA-55227). At the time of writing that version has not yet been released, so there is a work around in PMIP 0.3.0. It's because the path to your intellij plugins directory contains a space somewhere (in the above example 'Application Support') and the embedded jruby interpreter does not like this.
+*Please upgrade your PMIP plugin to 0.3.0 or higher* - This is a known problem in intellij's classloader that has been fixed in intellij 9.0.3 (see:  [http://youtrack.jetbrains.net/issue/IDEA-55227 IDEA-55227]). At the time of writing that version has not yet been released, so there is a work around in PMIP 0.3.0. It's because the path to your intellij plugins directory contains a space somewhere (in the above example 'Application Support') and the embedded jruby interpreter does not like this.
 
 If for some reason you are unable to upgrade to PMIP 0.3.0 or intellij 9.0.3, then the manual work around is as follows:
 
