@@ -24,7 +24,7 @@ balh ...
 
 If for some reason you are unable to upgrade to PMIP 0.3.0 or intellij 9.0.3, then the manual work around is as follows:
 
-Relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version and platform.  For example:
+Relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version and platform.
 
   * For intellij 9 on Windows this means changing the idea.plugins.path property in your idea.properties file.  
 
