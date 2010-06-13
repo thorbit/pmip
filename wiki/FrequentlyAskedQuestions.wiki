@@ -20,17 +20,17 @@ blah ...
 balh ...
 }}}
 
-*Please upgrade you PMIP plugin to 0.3.0 or higher* - This is a known problem in intellij's classloader that has been fixed in intellij 9.0.3, at the time of writing that version has not yet been released, so there is a work around in PMIP 0.3.0.*
+*Please upgrade your PMIP plugin to 0.3.0 or higher* - This is a known problem in intellij's classloader that has been fixed in intellij 9.0.3. At the time of writing that version has not yet been released, so there is a work around in PMIP 0.3.0. It's because the path to your intellij plugins directory contains a space somewhere (in the above example 'Application Support') and the embedded jruby interpreter does not like this
 
-... it's because the path to your intellij settings directory contains a space somewhere (in the above example 'Application Support') and at the time of writing the embedded jruby interpreter does not like this. The solution is to relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version and platform.  
+If for some reason you are unable to upgrade to PMIP 0.3.0 or intellij 9.0.3, then the manual work around is as follows:
+
+Relocate your settings dir to a path that does not contain a space.  The exact change depends on the intellij version and platform.  For example:
 
   * For intellij 9 on Windows this means changing the idea.plugins.path property in your idea.properties file.  
 
   * For intellij 9 on OSX you need to open the package contents, locate Contents/Info.plist and edit the property: Java/Properties/idea.plugins.path 
 
 Don't forget to move your existing plugins to the new directory or they will disappear!
-
-Hopefully this will be resolved soon....
 
 ----
 
