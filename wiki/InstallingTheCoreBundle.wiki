@@ -1,4 +1,4 @@
-Download the current PMIP Core Bundle - its listed under Featured downloads on the homepage.  Extract the contents of the bundle to *{PROJECT_HOME_DIR}/pmip/plugins/* (i.e afterwards you should have '{PROJECT_HOME_DIR}/pmip/plugins/core').
+Download the current PMIP Core Bundle - the latest version is always shown under 'Featured Downloads' on the homepage.  Extract the contents of the bundle to *{PROJECT_HOME_DIR}/pmip/plugins/* (i.e afterwards you should have '{PROJECT_HOME_DIR}/pmip/plugins/core').
 
 Edit pmip.rb so that it includes the bundle
 {{{
