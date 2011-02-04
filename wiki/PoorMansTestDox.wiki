@@ -6,13 +6,13 @@ class ToggleBetweenClassAndTest < PMIPAction
     from = context.editor_filepath
     to = toggle_to(from)
     return if to.nil?
-    elements = Elements.new(context).find_file(to)
+    elements = Elements.new.find_file(to)
     if elements.size == 1
-      Navigator.new(context).open(elements.first)
+      Navigator.new.open(elements.first)
     else
-      if Dialogs.new(context).yes_no('Test not found', 'Would you like to create a test for this class?')
+      if Dialogs.new.yes_no('Test not found', 'Would you like to create a test for this class?')
         to.write_lines([])
-        Refresh.file_system { Navigator.new(context).open(Elements.new(context).find_file(to).first) }
+        Refresh.file_system { Navigator.new.open(Elements.new.find_file(to).first) }
       end
     end
     result("#{from.name} -> #{to.name}")
