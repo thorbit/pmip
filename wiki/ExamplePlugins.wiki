@@ -1,4 +1,2 @@
-Since it changes frequently, probably best to just browse SVN .....
-
-==Agilifier==
+Since it changes frequently, probably best to just browse the plugins in
 [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/ svn]
