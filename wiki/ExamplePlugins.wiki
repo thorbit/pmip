@@ -1,2 +1,4 @@
 Since examples change frequently, probably best to just browse the example plugins in
 [http://code.google.com/p/pmip/source/browse/trunk/pmip/plugins/ svn]
+
+<wiki:gadget url="http://pmip.googlecode.com/svn/trunk/pmip/plugins/agilifier/init.rb"/>
