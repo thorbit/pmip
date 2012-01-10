@@ -13,7 +13,13 @@ class Path
   end
 
   def exist?
-    File.exist?(@path) &&File.directory?(@path)
+    File.exist?(@path) && File.directory?(@path)
+  end
+
+  def parent
+    parts = @path.split('/')
+    parts.pop
+    Path.new(parts.join('/'))
   end
 
   def to_s

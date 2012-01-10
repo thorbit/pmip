@@ -7,19 +7,24 @@ import javax.swing.KeyStroke
 PMIP_MENU = "PMIP::PopupMenu"
 
 class Binder
-  def self.bind(key, action, force)
+  def self.bind(key, action, force, menu = true)
     key.sub!('banana', 'ctrl alt shift')
     key.sub!('pear', 'ctrl shift')
     id = action.name
 
     unregister(key, id, force)
     register(key, action, id)
-    add_menu_item(action)
+    add_menu_item(action) if menu
     register_intention(action) if intention?(action)
 
     key_binding = key == '' ? ' ' : " -> #{key} "
     puts "- Bound #{id}#{key_binding}#{render_usages(id)}"
     action
+  end
+
+  def self.unbind(key, message)
+    unregister(key, nil, true)
+    bind(key, ShowMessage.new(message), true, false)
   end
 
   private
@@ -39,7 +44,7 @@ class Binder
   end
 
   def self.unregister(key, id, force)
-    action_manager.unregister_action(id)
+    action_manager.unregister_action(id) unless id.nil?
     return if key == ''
 
     keymap.action_ids(key_stroke(key)).each{|bound_id|
@@ -92,10 +97,16 @@ def bind(key, action='', options={})
 end
 
 def bind_and_run(key, action='', options={}, context = PMIPContext.new)
-  action_ro_run = bind(key, action, options)
-  puts "- Running #{action_ro_run.name}"
-  action_ro_run.run(nil, context)
+  action_to_run = bind(key, action, options)
+  puts "- Running #{action_to_run.name}"
+  action_to_run.run(nil, context)
 end
+
+def unbind(key, message = nil)
+  Binder.unbind(key, message)
+end
+
+#TODO: add rebind
 
 #TODO: add $plugin namespace support
 action_manager = ActionManager.instance

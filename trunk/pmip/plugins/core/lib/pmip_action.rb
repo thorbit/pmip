@@ -49,6 +49,11 @@ class PMIPAction < PMIPBaseAction
     @result
   end
 
+  def result_and_balloon(result)
+    result(result)
+    Balloon.new.info(result)
+  end
+
   def plugin_root
     @plugin_root
   end
