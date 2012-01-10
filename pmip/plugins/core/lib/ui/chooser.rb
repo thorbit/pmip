@@ -1,5 +1,6 @@
 import javax.swing.BorderFactory
 import javax.swing.DefaultListModel
+import javax.swing.JEditorPane
 import javax.swing.JLabel
 import javax.swing.JList
 import javax.swing.JPanel
@@ -7,6 +8,9 @@ import javax.swing.JTextArea
 import javax.swing.JScrollPane 
 import javax.swing.SwingConstants
 import javax.swing.SwingUtilities
+import javax.swing.text.Document
+import javax.swing.text.html.HTMLEditorKit
+import javax.swing.text.html.StyleSheet
 
 import java.awt.Color
 import java.awt.BorderLayout
@@ -14,6 +18,8 @@ import java.awt.Dimension
 
 import com.intellij.openapi.ui.popup.PopupChooserBuilder
 import com.intellij.ui.ColoredListCellRenderer
+
+#TODO: make width bit of dimension be configurable
 
 class RecentFilesRenderer < ColoredListCellRenderer
   def initialize(block)
@@ -27,11 +33,11 @@ class RecentFilesRenderer < ColoredListCellRenderer
 end
 
 class PreviewLine
-  def initialize
+  def initialize(width)
     @text_area = JTextArea.new
     @text_area.setEditable(false)
     @text_area.setRows(1)
-    @text_area.setPreferredSize(Dimension.new(500, @text_area.getFontMetrics(@text_area.getFont).getHeight))
+    @text_area.setPreferredSize(Dimension.new(width, @text_area.getFontMetrics(@text_area.getFont).getHeight))
   end
 
   def setText(value)
@@ -44,17 +50,43 @@ class PreviewLine
 end
 
 class PreviewBox
-  def initialize
+  def initialize(width)
     @text_area = JTextArea.new
     @text_area.setEditable(false)
 
     @scroll_pane = JScrollPane.new(@text_area)
-    @scroll_pane.setPreferredSize(Dimension.new(500, 500))
+    @scroll_pane.setPreferredSize(Dimension.new(width, 500))
   end
 
   def setText(value)
     @text_area.setText(value)
     @text_area.setCaretPosition(0) 
+  end
+
+  def widget
+    @scroll_pane
+  end
+end
+
+class HtmlPreviewBox
+  def initialize(width)
+    #TODO: rename
+    @jeditor_pane = JEditorPane.new
+    @jeditor_pane.setEditable(false)
+
+    @scroll_pane = JScrollPane.new(@jeditor_pane)
+    @scroll_pane.setPreferredSize(Dimension.new(width, 500))
+
+    kit = HTMLEditorKit.new
+    @jeditor_pane.setEditorKit(kit)
+
+    doc = kit.createDefaultDocument()
+    @jeditor_pane.setDocument(doc)
+  end
+
+  def setText(value)
+    @jeditor_pane.setText(value)
+    @jeditor_pane.setCaretPosition(0)
   end
 
   def widget
@@ -86,9 +118,10 @@ class ListSelectionListener
 end
 
 class Chooser
-  def initialize(title, items, context = PMIPContext.new)
+  def initialize(title, items, width = 500, context = PMIPContext.new)
     @title = title
     @items = items
+    @width = width
     @context = context
   end
 
@@ -104,22 +137,27 @@ class Chooser
 
   def preview_box(&block)
     @preview_block = block
-    @preview = PreviewBox.new
+    @preview = PreviewBox.new(@width)
     self
   end
 
   def preview_line(&block)
     @preview_block = block
-    @preview = PreviewLine.new
+    @preview = PreviewLine.new(@width)
+    self
+  end
+
+  def html_preview_box(&block)
+    @preview_block = block
+    @preview = HtmlPreviewBox.new(@width)
     self
   end
 
   def show(auto_execute_on_single_item = true)
-    raise "you must provide a block for 'on_selected'" if @on_selected_block.nil?
     raise "you must provide a block for 'description'" if @description_block.nil?
 
     return if @items.empty?
-    return @on_selected_block.call(@items.first) if @items.size == 1 && auto_execute_on_single_item
+    return @on_selected_block.call(@items.first) if !@on_selected_block.nil? && @items.size == 1 && auto_execute_on_single_item
 
     list_model = DefaultListModel.new
     @items.each{|i| list_model.addElement(i) }
@@ -150,7 +188,7 @@ class Chooser
   end
 
   def callback(display_list)
-    RunnableBlock.new(lambda { @on_selected_block.call(display_list.getSelectedValues()[0]) })
+    RunnableBlock.new(lambda { @on_selected_block.call(display_list.getSelectedValues()[0]) unless @on_selected_block.nil? })
   end
 
   def listener(display_list, widget, block)

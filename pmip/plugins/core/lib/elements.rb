@@ -7,7 +7,7 @@ import com.intellij.psi.search.GlobalSearchScope
 class Elements
   def initialize(context = PMIPContext.new)
     @context = context
-    @cache = JavaPsiFacade.getInstance(@context.project).getShortNamesCache
+    #@cache = JavaPsiFacade.getInstance(@context.project).getShortNamesCache
   end
 
   #TODO: deprecate in favour of search_file?
@@ -28,15 +28,15 @@ class Elements
     GotoSymbolModel2.new(@context.project).getElementsByName(name, include_external, '').to_a
   end
 
-  #TODO: should this be search_classes?
-  def search_class(pattern, scope = global_scope)
-    @cache.getAllClassNames().select{|name| name =~ pattern }.collect{|c| @cache.getClassesByName(c, scope) }.flatten
-  end
+  ##TODO: should this be search_classes?
+  #def search_class(pattern, scope = global_scope)
+  #  @cache.getAllClassNames().select{|name| name =~ pattern }.collect{|c| @cache.getClassesByName(c, scope) }.flatten
+  #end
 
-  #TODO: should this be search_files?
-  def search_file(pattern)
-    @cache.getAllFileNames().select{|name| name =~ pattern }.collect{|f| @cache.getFilesByName(f) }.flatten
-  end
+  ##TODO: should this be search_files?
+  #def search_file(pattern)
+  #  @cache.getAllFileNames().select{|name| name =~ pattern }.collect{|f| @cache.getFilesByName(f) }.flatten
+  #end
 
   def global_scope
     GlobalSearchScope.projectScope(@context.project)
