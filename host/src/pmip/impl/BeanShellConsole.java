@@ -29,7 +29,7 @@ public class BeanShellConsole implements Console {
         console.print(getIcon("/logo.png"));
         console.println();
         console.println("Poor Man's IDE Plugin (PMIP) - Version: " + PMIP.getVersion());
-        console.println("Copyright (c) 2009-2010 Paul Allton");
+        console.println("Copyright (c) 2009-2012 Paul Allton");
         console.println("Pimp My IDE!");
         console.println();
         console.requestFocus();
@@ -59,6 +59,6 @@ public class BeanShellConsole implements Console {
     private void clearConsoleContentInAVileManner() {
         JTextPane text = (JTextPane) Reflect.getField(console, "text");
         text.selectAll();
-        text.cut();
+        text.replaceSelection("");
     }
 }

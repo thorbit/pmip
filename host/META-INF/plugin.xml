@@ -23,12 +23,18 @@ bind 'ctrl alt shift A', HelloWorldAction.new
         </body>
         </html>]]>
     </description>
-    <version>0.3.1</version>
+    <version>0.3.2</version>
     <vendor logo="/pmip-16.png" email="paulallton@gmail.com" url="http://code.google.com/p/pmip/">Paul Allton</vendor>
     <change-notes>
         <![CDATA[
         <html>
         <body>
+        0.3.2
+        <UL>
+        <LI>Fix issue where PMIP sometimes fails to start in Intellij 11.
+        <LI>Upgraded jruby to 1.6.5.1.
+        <LI>Refresh no longer puts the cleared text in the clipboard.
+        </UL>
         0.3.1
         <UL>
         <LI>Refresh now clears console log.
@@ -41,14 +47,14 @@ bind 'ctrl alt shift A', HelloWorldAction.new
         </UL>
         0.2.3
         <UL>
-        <LI>Upgraded to jruby 1.5.0
+        <LI>Upgraded to jruby 1.5.0.
         <LI>Resolved (hopefully!) jruby startup issue (i.e large blob of red) caused by intellij settings directory containing a space
-        <LI>jruby_home property now exposed to scripts
+        <LI>jruby_home property now exposed to scripts.
         </UL>
         0.2.2
         <UL>
-        <LI>Finally added some instructions - see: <a href="http://code.google.com/p/pmip/">homepage</a>
-        <LI>Plugin name now available during plugin loading
+        <LI>Finally added some instructions - see: <a href="http://code.google.com/p/pmip/">homepage</a>.
+        <LI>Plugin name now available during plugin loading.
         </UL>
         0.2.1
         <UL>
