@@ -10,7 +10,7 @@ class ViewWebSpecificationFailures < PMIPAction
       Chooser.new("View web specification failure:", results, 1000).
         description{|r| "#{r.filename}" }.
         html_preview_box{|r| mangle_content(r, context) }.
-        #on_selected{|r| r.navigate_to }.
+        on_selected{|r| navigate_to(r, context) }.
         show(false)
     end
   end
@@ -18,6 +18,11 @@ class ViewWebSpecificationFailures < PMIPAction
   private
 
   def mangle_content(filepath, context)
-    filepath.read.gsub('screenshot/', 'file:///' +context.root + '/target/specs2-reports/failed/screenshot/')
+    filepath.read.gsub('screenshot/', 'file:///' + context.root + '/target/specs2-reports/failed/screenshot/')
+  end
+
+  def navigate_to(filepath, context)
+    spec_name = filepath.to_s.split('_')[1].sub('.html', '')
+    Navigator.new(context).open(Elements.new.by_class(spec_name))
   end
 end
