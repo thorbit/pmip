@@ -55,8 +55,8 @@ class Filepath
     Path.new(@filepath.sub(filename, ''))
   end
 
-  #TODO: not a good name, and probably shouldn't be on filepath - get rid of me
   def reduce(text)
+    puts "[DEPRECATION] `reduce` is deprecated. Please use a different way instead.\n" + Kernel.caller.first
     #TODO: blow up if text not in filepath
     index = @filepath.index(text)
     @filepath[index..-1].to_s

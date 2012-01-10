@@ -2,7 +2,7 @@ import com.intellij.ide.util.gotoByName.GotoFileModel
 import com.intellij.ide.util.gotoByName.GotoClassModel2
 import com.intellij.ide.util.gotoByName.GotoSymbolModel2
 import com.intellij.psi.JavaPsiFacade
-import com.intellij.psi.search.GlobalSearchScope
+#import com.intellij.psi.search.GlobalSearchScope
 
 class Elements
   def initialize(context = PMIPContext.new)
@@ -18,9 +18,9 @@ class Elements
     }
   end
 
-  #TODO: deprecate in favour of search_class?
   #TIP: only works with class names and not fully qualified names
   def find_class(name, include_external = false)
+    puts "[DEPRECATION] `find_class` is deprecated. Please use `by_class` instead.\n" + Kernel.caller.first
     GotoClassModel2.new(@context.project).getElementsByName(name, include_external, '').to_a
   end
 
@@ -28,17 +28,16 @@ class Elements
     GotoSymbolModel2.new(@context.project).getElementsByName(name, include_external, '').to_a
   end
 
-  ##TODO: should this be search_classes?
-  #def search_class(pattern, scope = global_scope)
-  #  @cache.getAllClassNames().select{|name| name =~ pattern }.collect{|c| @cache.getClassesByName(c, scope) }.flatten
-  #end
+  def by_class(fully_qualified_name)
+    JavaPsiFacade.getInstance(@context.project).findClass(fully_qualified_name)
+  end
 
   ##TODO: should this be search_files?
   #def search_file(pattern)
   #  @cache.getAllFileNames().select{|name| name =~ pattern }.collect{|f| @cache.getFilesByName(f) }.flatten
   #end
 
-  def global_scope
-    GlobalSearchScope.projectScope(@context.project)
-  end
+  #def global_scope
+  #  GlobalSearchScope.projectScope(@context.project)
+  #end
 end
