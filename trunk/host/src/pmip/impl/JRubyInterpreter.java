@@ -49,7 +49,7 @@ public class JRubyInterpreter implements Interpreter {
         try {
             ClassLoader oldClassLoader = Thread.currentThread().getContextClassLoader();
             Thread.currentThread().setContextClassLoader(null);
-            container = new ScriptingContainer(SINGLETON, TRANSIENT, null);
+            container = new ScriptingContainer(SINGLETON, TRANSIENT);
             container.put("$console", console);
             container.put("$jruby_home", jrubyHome());
             Thread.currentThread().setContextClassLoader(oldClassLoader);

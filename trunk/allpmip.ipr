@@ -97,6 +97,9 @@
     <option name="DEPRECATION" value="false" />
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
   <component name="IdProvider" IDEtalkID="2EAE53C2968AD7B923C71B40AFC7B8EA" />
   <component name="JavadocGenerationManager">
     <option name="OUTPUT_DIRECTORY" />
@@ -247,7 +250,10 @@
       <module fileurl="file://$PROJECT_DIR$/host/PMIP.iml" filepath="$PROJECT_DIR$/host/PMIP.iml" />
     </modules>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.5" project-jdk-type="JavaSDK">
+  <component name="ProjectResources">
+    <default-html-doctype>http://www.w3.org/1999/xhtml</default-html-doctype>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_5" assert-keyword="true" jdk-15="true" project-jdk-name="1.6" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="ResourceManagerContainer">
@@ -274,20 +280,6 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <SvnBranchConfiguration>
-              <option name="branchMap">
-                <map>
-                  <entry key="https://pmip.googlecode.com/svn/branches">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                  <entry key="https://pmip.googlecode.com/svn/tags">
-                    <value>
-                      <list />
-                    </value>
-                  </entry>
-                </map>
-              </option>
               <option name="branchUrls">
                 <list>
                   <option value="https://pmip.googlecode.com/svn/branches" />
@@ -353,7 +345,7 @@
         <root url="jar://$PROJECT_DIR$/host/lib/bsh-2.0b4.jar!/" />
         <root url="jar://$PROJECT_DIR$/host/lib/jedi_2.7.1.jar!/" />
         <root url="jar://$PROJECT_DIR$/host/lib/sugar.jar!/" />
-        <root url="jar://$PROJECT_DIR$/host/lib/jruby-complete-1.5.0-patched.jar!/" />
+        <root url="jar://$PROJECT_DIR$/host/lib/jruby-complete-1.6.5.1.jar!/" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />
