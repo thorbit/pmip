@@ -1,4 +1,4 @@
-Install the host plugin, by downloading it from the plugin manager in intellij [http://plugins.intellij.net/plugin/?idea&id=4571 (or using the direct download link)]. Once intellij has restarted you should see a new '*PMIP*' tab at the bottome of the screen and if all has gone well a message along the lines of: 
+Install the host plugin, by downloading it from the plugin manager in intellij [http://plugins.intellij.net/plugin/?idea&id=4571 (or using the direct download link)]. Once intellij has restarted you should see a new '*PMIP*' tab (at the bottom of the screen) and if all has gone well a message along the lines of: 
 
 {{{
 Hello PMIP x.x.x! - Please see http://code.google.com/p/pmip/ for full instructions and plugin helper bundles.
