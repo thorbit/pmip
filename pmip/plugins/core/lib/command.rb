@@ -6,6 +6,4 @@ class Command
       Balloon.new.error("Command not currently supported on: #{OS.name}")
     end
   end
-
-  #TODO: support no window option
 end
