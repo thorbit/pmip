@@ -6,9 +6,9 @@ class RunSpecificationInSBT < PMIPAction
     end
 
     spec_name = fully_qualified_spec_name(context.editor_filepath, context.root)
-    result(spec_name)
 
-    command = "call sbt \"test-only #{spec_name}\""
+    command = "bash ./sbt.sh \\\"test-only #{spec_name}\\\""
+    result(command)
     Command.run(context.root, command)
   end
 

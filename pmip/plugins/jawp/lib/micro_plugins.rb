@@ -9,10 +9,14 @@ class MicroPlugins < PMIPAction
   private
 
   def plugins
-    all = { 'Copy my staff id to clipboard' => lambda { Clipboard.set(staff_id(username)) },
+    all = {
+            'Copy my staff id to clipboard' => lambda { Clipboard.set(staff_id(username)) },
+            'Copy my nedap to clipboard' => lambda { Clipboard.set(nedap(username)) },
             'Copy my username to clipboard' => lambda { Clipboard.set(username) },
-            'Copy my hostname to clipboard' => lambda { Clipboard.set(hostname) }
+            'Copy my hostname to clipboard' => lambda { Clipboard.set(hostname) },
+            'Copy my phone number to clipboard' => lambda { Clipboard.set('79922655') }
     }
+
     all
   end
 
@@ -21,8 +25,14 @@ class MicroPlugins < PMIPAction
   end
 
   def staff_id(username)
+    user(username).has_key?('staff_id') ? user(username)['staff_id'].to_s : Balloon.new.error("Could not find a staff id for '#{username}', please edit 'users.yaml'")
+  end
+  def nedap(username)
+    user(username).has_key?('nedap') ? user(username)['nedap'].to_s : Balloon.new.error("Could not find a nedap for '#{username}', please edit 'users.yaml'")
+  end
+  def user(usersname)
     users = YAML::load_file(plugin_root + '/users.yaml')
-    users.has_key?(username) ? users[username].to_s : Balloon.new.error("Could not find a staff id for '#{username}', please edit 'users.yaml'")
+    users.has_key?(username) ? users[username] : Balloon.new.error("Could not find a user for '#{username}', please edit 'users.yaml'")
   end
 
   def hostname
