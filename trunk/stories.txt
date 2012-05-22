@@ -2,7 +2,6 @@ New Features:
 - launching a run configuration is quite common - make it an action
 - add menu items
 - do some plugin namespacing
-- embed webserver for web activated actions - ie. RunFit ...
 - put shortcuts into a pmip namespace
 
 Tidy Up:
