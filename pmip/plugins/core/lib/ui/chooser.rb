@@ -154,8 +154,6 @@ class Chooser
   end
 
   def show(auto_execute_on_single_item = true)
-    raise "you must provide a block for 'description'" if @description_block.nil?
-
     return if @items.empty?
     return @on_selected_block.call(@items.first) if !@on_selected_block.nil? && @items.size == 1 && auto_execute_on_single_item
 
@@ -184,7 +182,7 @@ class Chooser
   end
 
   def renderer
-    RecentFilesRenderer.new(lambda {|renderer, value| renderer.append(@description_block.call(value).to_s) })
+    RecentFilesRenderer.new(lambda {|renderer, value| renderer.append(@description_block.call(value).to_s) }) unless @description_block.nil?
   end
 
   def callback(display_list)

@@ -2,6 +2,7 @@
 #TIP: includes tweaks from http://kadaitcha.cx/xp/performance.html
 
 class OptimiseDevelopmentEnvironment < PMIPAction
+  ECHO = false
   def run(event, context)
     if OS.windows?
       set_priority(mcaffe_processes, 'Idle')
@@ -24,7 +25,9 @@ class OptimiseDevelopmentEnvironment < PMIPAction
 
   def set_priority(processes, priority)
     processes.each{|p|
-      check = `#{plugin_root}/pv -p"#{priority}" #{p}`.split("\n").first.strip
+      command = "pv -p\"#{priority}\" #{p}"
+      puts command if ECHO
+      check = `#{plugin_root}/#{command}`.split("\n").first.strip
       raise "failed to set priority to #{priority} for #{p}" unless check.include?("Setting priority to #{priority} for '#{p}'")
     }
   end

@@ -28,4 +28,8 @@ class Run
   def self.write_action(&block)
     ApplicationManager.application.runWriteAction(RunnableBlock.new(block))
   end
+
+  def self.edt_safe_action(&block)
+    ApplicationManager.application.runEdtSafeAction(RunnableBlock.new(block))
+  end
 end
