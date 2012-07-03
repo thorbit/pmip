@@ -2,12 +2,14 @@ load 'lib/optimise_development_environment.rb'
 load 'lib/goto_css.rb'
 load 'lib/micro_plugins.rb'
 load 'lib/run_specification_in_sbt.rb'
+load 'lib/view_driveby_tracking_report.rb'
 load 'lib/view_web_specification_failures.rb'
 load 'lib/view_xml_specification_failures.rb'
 
 bind 'alt shift S', GotoCss.new
 bind 'banana M', MicroPlugins.new
 bind 'banana F10', RunSpecificationInSBT.new
+bind 'pear T', ViewDriveByTrackingReport.new
 bind 'banana W', ViewWebSpecificationFailures.new
 bind 'banana X', ViewXmlSpecificationFailures.new
 unbind 'ctrl T', "Sorry, it's too easy to hit 'ctrl T' when you didnt mean to, please use 'banana T' to do a subversion update"

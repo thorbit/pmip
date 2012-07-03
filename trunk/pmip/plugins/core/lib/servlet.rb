@@ -51,7 +51,6 @@ class PMIPServlet < WEBrick::HTTPServlet::AbstractServlet
     content_type('text/html')
     context = PMIPContext.new
     reset_result
-    StatusBar.new.set("Running #{name} ...")
     track(mangle_name(name))
     Run.later do
       begin
@@ -61,7 +60,6 @@ class PMIPServlet < WEBrick::HTTPServlet::AbstractServlet
         response['Content-Type'] = @content_type
         message = "#{name}: #{@result}"
         puts "- #{message}"
-        StatusBar.new.set(message)
       rescue => e
         message = "Error: #{e.message}:\n#{e.backtrace.join("\n")}"
         puts message
