@@ -7,7 +7,7 @@ class Browser
     if OS.osx?
       com.apple.eio.FileManager.openURL(url)
     elsif OS.windows?
-      Thread.start{ `rundll32 url.dll,FileProtocolHandler #{url}` }
+      `rundll32 url.dll,FileProtocolHandler #{url}`
     else
       BROWSERS.each{|browser| return Thread.start{`#{browser} #{url}`} unless `which #{browser}`.strip.empty? }
     end

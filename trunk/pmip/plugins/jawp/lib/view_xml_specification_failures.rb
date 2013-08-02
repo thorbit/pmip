@@ -8,7 +8,7 @@ class ViewXmlSpecificationFailures < PMIPAction
     else
       result("found #{results.size} failures")
 
-      Chooser.new("View xml conversion failure:", results, 1000).
+      Chooser.new("View xml conversion failure:", results, 1100, 800).
         description{|r| "#{r.filename}" }.
         on_selected{|r| diff_expected_and_actual(event, context, r.to_s) }.
         show(false)

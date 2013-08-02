@@ -49,13 +49,28 @@ end
 def server(port = 9319)
   puts "- Starting server on port: #{port}"
 
-  $servers[port] = WEBrick::HTTPServer.new(:Port => port) if $servers[port].nil?
+  begin
+    $servers[port].shutdown if $servers.has_key?(port)
+  rescue => e
+    puts "- Server on #{port} failed to shutdown with message: #{e}"
+  end
+
+  #TODO: this is where we sometimes get  Address already in use - bind - Address already in use: bind
+  #possibly we need to wait/confirm the server shutdown or maybe retry?
+
+  $servers[port] = WEBrick::HTTPServer.new(:Port => port)
   server = $servers[port]
   $mounts.keys.each{|url|
-    server.unmount(url)
     server.mount(url, $mounts[url][0], *$mounts[url][1])
   }
   $mounts.clear
 
-  Thread.new { server.start unless server.status == :Running }
+  Thread.new {
+    begin
+      sleep 1
+      server.start
+    rescue Exception => e
+      puts "- Exception starting server on #{port} - #{e}"
+    end
+  }
 end

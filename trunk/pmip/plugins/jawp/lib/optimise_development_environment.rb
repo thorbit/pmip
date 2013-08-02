@@ -3,13 +3,14 @@
 
 class OptimiseDevelopmentEnvironment < PMIPAction
   ECHO = false
+
   def run(event, context)
     if OS.windows?
       set_priority(mcaffe_processes, 'Idle')
       set_priority(['tsvncache.exe'], 'Idle')
       #disable_last_access_timestamp
-      optimise_win32_priority_seperation
-      optimise_ephemeral_ports
+      #optimise_win32_priority_seperation
+      #optimise_ephemeral_ports
     end
   end
 

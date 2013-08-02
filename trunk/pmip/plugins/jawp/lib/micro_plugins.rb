@@ -14,9 +14,8 @@ class MicroPlugins < PMIPAction
             'Copy my nedap to clipboard' => lambda { Clipboard.set(nedap(username)) },
             'Copy my username to clipboard' => lambda { Clipboard.set(username) },
             'Copy my hostname to clipboard' => lambda { Clipboard.set(hostname) },
-            'Copy my phone number to clipboard' => lambda { Clipboard.set('79922655') }
+            'Copy my phone number to clipboard' => lambda { Clipboard.set(phone_number_or_default_if_missing) }
     }
-
     all
   end
 
@@ -37,5 +36,9 @@ class MicroPlugins < PMIPAction
 
   def hostname
     `hostname`.strip
+  end
+
+  def phone_number_or_default_if_missing
+    user(username).has_key?('phone') ? user(username)['phone'].to_s : 'XXX XXXXXXXX'
   end
 end
