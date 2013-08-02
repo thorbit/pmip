@@ -19,8 +19,6 @@ import java.awt.Dimension
 import com.intellij.openapi.ui.popup.PopupChooserBuilder
 import com.intellij.ui.ColoredListCellRenderer
 
-#TODO: make width bit of dimension be configurable
-
 class RecentFilesRenderer < ColoredListCellRenderer
   def initialize(block)
     super()
@@ -50,12 +48,12 @@ class PreviewLine
 end
 
 class PreviewBox
-  def initialize(width)
+  def initialize(width, height)
     @text_area = JTextArea.new
     @text_area.setEditable(false)
 
     @scroll_pane = JScrollPane.new(@text_area)
-    @scroll_pane.setPreferredSize(Dimension.new(width, 500))
+    @scroll_pane.setPreferredSize(Dimension.new(width, height))
   end
 
   def setText(value)
@@ -69,13 +67,13 @@ class PreviewBox
 end
 
 class HtmlPreviewBox
-  def initialize(width)
+  def initialize(width, height)
     #TODO: rename
     @jeditor_pane = JEditorPane.new
     @jeditor_pane.setEditable(false)
 
     @scroll_pane = JScrollPane.new(@jeditor_pane)
-    @scroll_pane.setPreferredSize(Dimension.new(width, 500))
+    @scroll_pane.setPreferredSize(Dimension.new(width, height))
 
     kit = HTMLEditorKit.new
     @jeditor_pane.setEditorKit(kit)
@@ -118,10 +116,11 @@ class ListSelectionListener
 end
 
 class Chooser
-  def initialize(title, items, width = 500, context = PMIPContext.new)
+  def initialize(title, items, width = 500, height = 500, context = PMIPContext.new)
     @title = title
     @items = items
     @width = width
+    @height = height
     @context = context
   end
 
@@ -137,7 +136,7 @@ class Chooser
 
   def preview_box(&block)
     @preview_block = block
-    @preview = PreviewBox.new(@width)
+    @preview = PreviewBox.new(@width, @height)
     self
   end
 
@@ -149,7 +148,7 @@ class Chooser
 
   def html_preview_box(&block)
     @preview_block = block
-    @preview = HtmlPreviewBox.new(@width)
+    @preview = HtmlPreviewBox.new(@width, @height)
     self
   end
 
