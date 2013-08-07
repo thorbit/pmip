@@ -17,8 +17,6 @@ bind 'banana F10', RunSpecificationInSBT.new
 bind 'banana Z', ViewDriveByTrackingReport.new
 bind 'banana W', ViewWebSpecificationFailures.new
 bind 'banana X', ViewXmlSpecificationFailures.new
-unbind 'ctrl T', "Sorry, it's too easy to hit 'ctrl T' when you didnt mean to, please use 'banana T' to do a subversion update"
-bind 'banana T', RunIntellijAction.new('Vcs.UpdateProject', 'Subversion Update')
 bind 'alt shift H', RunIntellijAction.new('Vcs.ShowTabbedFileHistory', 'Show History')
 bind 'alt shift A', RunIntellijAction.new('Annotate', 'Finger Of Blame')
 bind 'banana D', RunIntellijAction.new('Compare.SameVersion', 'Compare With Same Repo Version')
@@ -27,6 +25,9 @@ bind 'banana F', RunIntellijAction.new('OpenInBrowser', 'Open in Browser')
 bind 'banana R', RunIntellijAction.new('ChangesView.Rollback', 'Rollback/Revert')
 bind 'banana U', UnicodeUpMyScala.new
 
-
+nuke_dukes = ExecuteCommand.new('bash.bat ./script/nukeDukes.sh', PMIPContext.new.root, "Nuke Jukes")
+bind 'banana J', nuke_dukes
+unbind 'ctrl T', "Sorry, it's too easy to hit 'ctrl T' when you didn't mean to, please use 'banana T' to do a subversion update"
+bind 'banana T', CompositeAction.new([nuke_dukes, RunIntellijAction.new('Vcs.UpdateProject', 'Subversion Update')])
 
 bind_and_run OptimiseDevelopmentEnvironment.new
