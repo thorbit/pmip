@@ -1,7 +1,7 @@
 include('framework.js')
 
 using(window.document, function() {
-    type('foo', id('username'));
-    type('bar', id('password'));
+    type('???', id('username'));
+    type('???', id('password'));
     click(id('submit'));
 });

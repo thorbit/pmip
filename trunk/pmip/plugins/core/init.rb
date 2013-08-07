@@ -26,6 +26,7 @@ load 'lib/sound.rb'
 load 'lib/stats.rb'
 
 #TODO: consistify on execute or run
+load 'lib/action/composite_action.rb'
 load 'lib/action/execute_command.rb'
 load 'lib/action/execute_configuration.rb'
 load 'lib/action/open_file_externally.rb'
