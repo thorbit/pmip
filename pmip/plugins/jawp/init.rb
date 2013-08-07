@@ -1,5 +1,6 @@
 load 'lib/generate_font_awesome_icons.rb'
 load 'lib/goto_css.rb'
+load 'lib/inject_trade.rb'
 load 'lib/micro_plugins.rb'
 load 'lib/optimise_development_environment.rb'
 load 'lib/run_specification_in_sbt.rb'
@@ -24,6 +25,7 @@ bind 'banana C', RunIntellijAction.new('CompareTwoFiles', 'Compare Two Files')
 bind 'banana F', RunIntellijAction.new('OpenInBrowser', 'Open in Browser')
 bind 'banana R', RunIntellijAction.new('ChangesView.Rollback', 'Rollback/Revert')
 bind 'banana U', UnicodeUpMyScala.new
+bind 'banana I', InjectTrade.new
 
 nuke_dukes = ExecuteCommand.new('bash.bat ./script/nukeDukes.sh', PMIPContext.new.root, "Nuke Jukes")
 bind 'banana J', nuke_dukes
