@@ -27,7 +27,7 @@ bind 'banana R', RunIntellijAction.new('ChangesView.Rollback', 'Rollback/Revert'
 bind 'banana U', UnicodeUpMyScala.new
 bind 'banana I', InjectTrade.new
 
-nuke_dukes = ExecuteCommand.new('bash.bat ./script/nukeDukes.sh', PMIPContext.new.root, "Nuke Jukes")
+nuke_dukes = ExecuteCommand.new('pmip\plugins\jawp\bash.bat ./pmip/plugins/jawp/nukeDukes.sh', PMIPContext.new.root, "Nuke Jukes")
 bind 'banana J', nuke_dukes
 unbind 'ctrl T', "Sorry, it's too easy to hit 'ctrl T' when you didn't mean to, please use 'banana T' to do a subversion update"
 bind 'banana T', CompositeAction.new([nuke_dukes, RunIntellijAction.new('Vcs.UpdateProject', 'Subversion Update')])
