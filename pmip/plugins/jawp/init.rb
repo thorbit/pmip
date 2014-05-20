@@ -29,7 +29,12 @@ bind 'banana I', InjectTrade.new
 
 nuke_dukes = ExecuteCommand.new('pmip\plugins\jawp\bash.bat ./pmip/plugins/jawp/nukeDukes.sh', PMIPContext.new.root, "Nuke Jukes")
 bind 'banana J', nuke_dukes
+
 unbind 'ctrl T', "Sorry, it's too easy to hit 'ctrl T' when you didn't mean to, please use 'banana T' to do a subversion update"
 bind 'banana T', CompositeAction.new([nuke_dukes, RunIntellijAction.new('Vcs.UpdateProject', 'Subversion Update')])
+#update = RunIntellijAction.new('Vcs.UpdateProject', 'GIT Update')
+commit = RunIntellijAction.new('ChangesView.Commit', 'GIT Commit..')
+push = RunIntellijAction.new('Git.Push', 'GIT Push..')
+bind 'banana K', CompositeAction.new([commit, push], 'GIT commit and Push')
 
 bind_and_run OptimiseDevelopmentEnvironment.new
