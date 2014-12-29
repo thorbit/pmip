@@ -26,15 +26,33 @@ bind 'banana F', RunIntellijAction.new('OpenInBrowser', 'Open in Browser')
 bind 'banana R', RunIntellijAction.new('ChangesView.Rollback', 'Rollback/Revert')
 bind 'banana U', UnicodeUpMyScala.new
 bind 'banana I', InjectTrade.new
+bind 'banana T', RunIntellijAction.new('Vcs.UpdateProject', 'Update')
 
 nuke_dukes = ExecuteCommand.new('pmip\plugins\jawp\bash.bat ./pmip/plugins/jawp/nukeDukes.sh', PMIPContext.new.root, "Nuke Jukes")
 bind 'banana J', nuke_dukes
 
-unbind 'ctrl T', "Sorry, it's too easy to hit 'ctrl T' when you didn't mean to, please use 'banana T' to do a subversion update"
-bind 'banana T', CompositeAction.new([nuke_dukes, RunIntellijAction.new('Vcs.UpdateProject', 'Subversion Update')])
+class RefreshAction < PMIPAction
+  def run(event, context)
+    puts "refreshing"
+    Refresh.file_system
+  end
+end
+
 #update = RunIntellijAction.new('Vcs.UpdateProject', 'GIT Update')
 commit = RunIntellijAction.new('ChangesView.Commit', 'GIT Commit..')
 push = RunIntellijAction.new('Git.Push', 'GIT Push..')
-bind 'banana K', CompositeAction.new([commit, push], 'GIT commit and Push')
+refresh = RefreshAction.new
+commit_and_push = CompositeAction.new([refresh, commit, refresh, push, refresh], 'GIT commit and Push')
+
+#if 'foo' == System.getProperty("user.name")
+#  unbind 'ctrl K', 'Try banana K instead'
+#  bind 'ctrl K', commit_and_push
+#  bind 'banana K', commit
+#  load 'lib/clobber_annoying_intellij_defaults.rb'
+#else
+#  bind 'banana K', commit_and_push
+#end
+
+#bind 'banana Q', RunIntellijAction.new('CloseProject', 'Close Project')
 
 bind_and_run OptimiseDevelopmentEnvironment.new
